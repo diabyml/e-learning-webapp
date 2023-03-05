@@ -41,7 +41,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             value={value}
             className={cn(
               clsx(
-                "flex w-full rounded-full border border-primary-400 bg-transparent py-3 px-6 font-poppin text-lg placeholder:text-slate-400 focus:outline-none  disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50",
+                "flex w-full rounded-full border border-primary-400 bg-transparent py-3 px-6 font-poppin text-lg text-black placeholder:text-slate-400 focus:outline-none  disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50",
                 type === "password" && "pr-12"
               ),
               className
