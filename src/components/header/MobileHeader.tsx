@@ -3,19 +3,22 @@ import { Menu, X } from "lucide-react";
 import React, { useState } from "react";
 import Logo from "../logo";
 import { navigattionItems } from "./navigationItems";
+import Link from "next/link";
 
-const Link: React.FC<any> = ({ children }) => {
-  return (
-    <a href="#" className="inline-flex">
-      {children}
-    </a>
-  );
-};
+interface MobileHeaderProps {
+  variant?: "primary" | "default";
+}
 
-const MobileHeader = () => {
+const MobileHeader: React.FC<MobileHeaderProps> = ({ variant = "default" }) => {
   const [menuState, setMenuState] = useState<"open" | "closed">("closed");
+
   return (
-    <header className="bg-slate-200">
+    <header
+      className={clsx(
+        "bg-slate-200",
+        variant === "primary" && "bg-transparent"
+      )}
+    >
       {/* overlay */}
       <div
         className={clsx(
@@ -28,40 +31,63 @@ const MobileHeader = () => {
       {/* container */}
       <div className="container mx-auto">
         {/* wrapper */}
-        <div className="flex h-16 items-center justify-between px-4">
-          {menuState === "open" ? null : (
-            <Menu
-              className="h-10 w-10 cursor-pointer"
-              onClick={() => setMenuState("open")}
-            />
+        <div className="flex h-12 items-center justify-between px-4">
+          {menuState === "open" ? (
+            <button
+              className="closeBtn fixed top-4 right-1/3 z-40 inline-flex h-12 w-12 items-center  justify-center rounded-full bg-white hover:bg-slate-300"
+              onClick={() => setMenuState("closed")}
+            >
+              <X className="h-6 w-6 text-black" />
+            </button>
+          ) : (
+            <button className="inline-flex h-12 w-12 items-center justify-center">
+              <Menu
+                className="h-6 w-6 cursor-pointer"
+                onClick={() => setMenuState("open")}
+              />
+            </button>
           )}
           <Logo />
           {/* navigation */}
           <div
             className={clsx(
-              "fixed left-0 top-0 bottom-0 z-50 w-3/4 -translate-x-full bg-white  shadow-lg transition-transform animate-in duration-300",
-              menuState === "open" && "translate-x-0"
+              "fixed left-0 top-0 bottom-0 z-50   overflow-x-hidden  bg-white  shadow-lg  transition-all animate-in duration-300",
+              menuState === "open" ? "w-1/2" : "w-0"
             )}
           >
-            {menuState === "open" && (
-              <button
-                className="fixed top-4 -right-16 -z-10  inline-flex items-center justify-center  rounded-full bg-white p-2 hover:bg-slate-300 "
-                onClick={() => setMenuState("closed")}
+            {/* nav header */}
+            <div className="border-b py-2">
+              <Link
+                href={"#"}
+                className="block  w-full py-2 px-4 font-bold text-primary-400"
               >
-                <X className="h-8 w-8" />
-              </button>
-            )}
-            <nav className="p-4">
+                Login
+              </Link>
+              <Link
+                href={"#"}
+                className="block w-full py-2 px-4 font-bold text-primary-400"
+              >
+                Register
+              </Link>
+            </div>
+            <nav className="p-y-4">
               <ul>
                 {navigattionItems.map((item) => (
                   <li key={item}>
-                    <Link>{item}</Link>
+                    <Link
+                      href="#"
+                      className="inline-flex w-full  py-2 px-4 text-text1"
+                    >
+                      {item}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </nav>
           </div>
-          <div>user</div>
+          <div className="jsutify-center flex h-8 w-8 items-center justify-center rounded-full bg-white text-sm font-bold text-primary-400">
+            AD
+          </div>
         </div>
       </div>
     </header>

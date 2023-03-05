@@ -53,16 +53,18 @@
   }
 }
 
-.navigation > :first-child {
-  /* outline: 2px solid red; */
-  padding-left: 0 !important;
-}
-
 .hero-img {
   background-image: url(/assets/hero-img.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+@media only screen and (max-width: 300px) {
+  .closeBtn {
+    background-color: green !important;
+    right: 24px;
+  }
 }
 
 .anime {
