@@ -5,14 +5,14 @@ import { navigattionItems } from "./navigationItems";
 
 const DesktopHeader = () => {
   return (
-    <header>
+    <header className="">
       {/* container */}
       <div className="container mx-auto">
         {/* wrapper */}
-        <div className="flex h-[72px] items-center justify-between px-4">
+        <div className="relative flex h-[72px] items-center justify-between px-4">
           <Logo />
           {/* nav */}
-          <div className="self-stretch">
+          <div className="desktop-nav self-stretch">
             <nav className="p-y-4 h-full">
               <ul className="flex h-full items-center">
                 {navigattionItems.map((item) => (
