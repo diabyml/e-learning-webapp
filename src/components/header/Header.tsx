@@ -4,10 +4,10 @@ import MobileHeader from "./MobileHeader";
 const Header = () => {
   return (
     <div>
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <MobileHeader variant="primary" />
       </div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <DesktopHeader />
       </div>
     </div>
