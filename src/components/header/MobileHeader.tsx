@@ -31,10 +31,10 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ variant = "default" }) => {
       {/* container */}
       <div className="container mx-auto">
         {/* wrapper */}
-        <div className="flex h-12 items-center justify-between px-4">
+        <div className="flex h-14 items-center justify-between px-4">
           {menuState === "open" ? (
             <button
-              className="closeBtn fixed top-4 right-1/3 z-40 inline-flex h-12 w-12 items-center  justify-center rounded-full bg-white hover:bg-slate-300"
+              className="closeBtn fixed top-4 right-[20%] z-40 inline-flex h-12 w-12 items-center  justify-center rounded-full bg-white hover:bg-slate-300"
               onClick={() => setMenuState("closed")}
             >
               <X className="h-6 w-6 text-black" />
@@ -52,7 +52,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ variant = "default" }) => {
           <div
             className={clsx(
               "fixed left-0 top-0 bottom-0 z-50   overflow-x-hidden  bg-white  shadow-lg  transition-all animate-in duration-300",
-              menuState === "open" ? "w-1/2" : "w-0"
+              menuState === "open" ? "w-2/3" : "w-0"
             )}
           >
             {/* nav header */}
