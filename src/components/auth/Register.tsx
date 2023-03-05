@@ -40,7 +40,7 @@ const Register = () => {
       </div>
       <div className="flex justify-end">
         <Button className="w-full lg:w-1/2" size={"lg"}>
-          S'inscrire
+          Register
         </Button>
       </div>
     </div>
