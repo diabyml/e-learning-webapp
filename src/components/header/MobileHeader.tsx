@@ -28,18 +28,22 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ variant = "default" }) => {
         style={{ background: "rgba(0,0,0,0.6)" }}
         onClick={() => setMenuState("closed")}
       ></div>
+
+      {/* close menu */}
+      {menuState === "open" && (
+        <button
+          className="closeBtn fixed top-4 right-[15%] z-40 inline-flex h-12 w-12 items-center  justify-center rounded-full bg-white hover:bg-slate-300"
+          onClick={() => setMenuState("closed")}
+        >
+          <X className="h-6 w-6 text-black" />
+        </button>
+      )}
+
       {/* container */}
       <div className="container mx-auto">
         {/* wrapper */}
         <div className="flex h-14 items-center justify-between px-4">
-          {menuState === "open" ? (
-            <button
-              className="closeBtn fixed top-4 right-[20%] z-40 inline-flex h-12 w-12 items-center  justify-center rounded-full bg-white hover:bg-slate-300"
-              onClick={() => setMenuState("closed")}
-            >
-              <X className="h-6 w-6 text-black" />
-            </button>
-          ) : (
+          {menuState === "open" ? null : (
             <button className="inline-flex h-12 w-12 items-center justify-center">
               <Menu
                 className="h-6 w-6 cursor-pointer"
